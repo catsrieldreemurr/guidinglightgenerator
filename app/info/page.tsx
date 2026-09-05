@@ -1,3 +1,4 @@
+import ImageTextComponent from "@/components/ui/imageTextComponent";
 import Typography from "@/components/ui/typography";
 import { InfoIcon } from "lucide-react";
 import Image from "next/image";
@@ -12,17 +13,24 @@ export default function Page(){
                 </Link>
             </div>
             
-            <div className="flex sm:flex-row flex-col">
-                <Image src={"/shootsyou.png"} alt="Fern holding a musket like a shotgun" height={200} width={200}/>
-                <div className="flex flex-row items-center justify-center">
-                    <Typography>Created by Fern Baxter</Typography>
-                    <div>
-                        <Link href={"https://x.com/purrfectiu"}>@purrfectiu</Link>
-                        <Link href={"https://x.com/GuidingTheHotel"}>@GuidingTheHotel</Link>
-                    </div>
-                    
-                </div>
-            </div>
+            <ImageTextComponent 
+                imageURL="/shootsyou.png"
+                imageAlt="Fern holding a musket like a shotgun"
+                headerText="Created by Fern Baxxter"
+                imageDirection="imageLeft"
+            >
+                <Link href={"https://x.com/purrfectiu"}><Typography>@purrfectiu</Typography></Link>
+                <Link href={"https://x.com/GuidingTheHotel"}><Typography>@GuidingTheHotel</Typography></Link>
+            </ImageTextComponent>
+            
+            <ImageTextComponent 
+                imageURL="/LSplash.png" 
+                imageAlt="LSplash"
+                headerText="DOORS Created by LSplash"
+            >
+                <Link href={"https://x.com/LightningSplash"}><Typography>@LightningSplash</Typography></Link>
+                <Link href={"https://www.roblox.com/games/6516141723/DOORS"}><Typography>🔗DOORS</Typography></Link>  
+            </ImageTextComponent>
          </div>
     )
 }
