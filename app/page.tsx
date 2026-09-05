@@ -1,9 +1,6 @@
-"use client"
-import { Button } from "@/components/ui/button";
 import FrontpageButton from "@/components/ui/frontpageButton";
 import Typography from "@/components/ui/typography";
 import { ImagePlusIcon, InfoIcon } from "lucide-react";
-import Link from "next/link";
 
 export default function Home() {
   return (
@@ -14,7 +11,7 @@ export default function Home() {
       </div>  
       
       <div className="flex flex-col gap-5">
-        <FrontpageButton linkDestination="/" icon={<ImagePlusIcon className="size-2xl"/>}>Create</FrontpageButton>
+        <FrontpageButton linkDestination="/generate" icon={<ImagePlusIcon className="size-2xl"/>}>Create</FrontpageButton>
         <FrontpageButton linkDestination="/" icon={<InfoIcon className="size-2xl"/>}>Info</FrontpageButton>
       </div>
     </div>
