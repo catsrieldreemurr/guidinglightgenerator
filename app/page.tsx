@@ -12,7 +12,7 @@ export default function Home() {
       
       <div className="flex flex-col gap-5">
         <FrontpageButton linkDestination="/generate" icon={<ImagePlusIcon className="size-2xl"/>}>Create</FrontpageButton>
-        <FrontpageButton linkDestination="/" icon={<InfoIcon className="size-2xl"/>}>Info</FrontpageButton>
+        <FrontpageButton linkDestination="/info" icon={<InfoIcon className="size-2xl"/>}>Info</FrontpageButton>
       </div>
     </div>
   );
