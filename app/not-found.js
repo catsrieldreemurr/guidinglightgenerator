@@ -4,7 +4,7 @@ import Link from "next/link"
 
 export default function Custom404Error(){
     return(
-        <div className="bg-[url(/guiding_static.gif)] min-h-screen flex justify-center items-center flex-col gap-10">
+        <div className="bg-[url(/guiding_static.gif)] bg-fixed min-h-screen flex justify-center items-center flex-col gap-10">
             <div className="flex justify-center items-center gap-5">
                 <CircleXIcon className="text-blue-300 size-xl-"/>
                 <Typography variant="h1">Error 404: Page not found</Typography>

@@ -17,7 +17,7 @@ export default function ImageTextComponent({ imageDirection, imageURL, imageAlt,
             ${imageDirection === "imageLeft" && 'sm:flex-row-reverse'} gap-5`}>
             
             <div className="flex items-center">
-                <div className="flex flex-col items-center justify-center border-2 border-blue-300 p-5">
+                <div className="flex flex-col items-center justify-center rounded-lg border-2 border-blue-300 p-5">
                 <Typography isBold>{headerText}</Typography>
                 <div className="flex gap-5">
                    {children}
