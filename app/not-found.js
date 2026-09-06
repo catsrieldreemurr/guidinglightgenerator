@@ -1,3 +1,4 @@
+import ContentContainer from "@/components/ui/contentContainer"
 import Typography from "@/components/ui/typography"
 import { CircleXIcon } from "lucide-react"
 import Link from "next/link"
@@ -15,3 +16,4 @@ export default function Custom404Error(){
         </div>
     )
 }
+<div className="bg-[url(/guiding_static.gif)] bg-fixed min-h-screen flex justify-center items-center flex-col gap-10"></div>

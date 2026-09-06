@@ -1,13 +1,14 @@
 import Link from "next/link";
 import Typography from "../typography";
+import ContentContainer from "../contentContainer";
 
 export default function DeathScreenSelector(){
     return (
-        <div className="bg-[url(/guiding_static.gif)] bg-fixed min-h-screen flex items-center flex-col gap-10">
+        <ContentContainer>
             <Link href={"/"}>
                 <Typography variant="h1" isBold style="mt-5 hover:text-white">Select a Death Screen</Typography>
             </Link>
-        </div>
+        </ContentContainer>
 
     )
 }

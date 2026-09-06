@@ -1,10 +1,11 @@
+import ContentContainer from "@/components/ui/contentContainer";
 import ImageTextComponent from "@/components/ui/imageTextComponent";
 import Typography from "@/components/ui/typography";
 import Link from "next/link";
 
 export default function Page(){
     return ( 
-        <div className="bg-[url(/guiding_static.gif)] bg-fixed min-h-screen flex items-center flex-col gap-10">
+        <ContentContainer>
             <div className="flex flex-row gap-10 items-center justify-center mt-5">
                 <Link href={"/"}>
                     <Typography variant="h1" isBold style="hover:text-white">Information</Typography>
@@ -44,6 +45,6 @@ export default function Page(){
                 <Typography>Icons by Lucide Icons</Typography>
             </div>
             
-        </div>
+        </ContentContainer>
     )
 }
