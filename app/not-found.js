@@ -5,7 +5,7 @@ import Link from "next/link"
 
 export default function Custom404Error(){
     return(
-        <div className="bg-[url(/guiding_static.gif)] bg-fixed min-h-screen flex justify-center items-center flex-col gap-10">
+        <ContentContainer doJustifyCenter>
             <div className="flex justify-center items-center gap-5">
                 <CircleXIcon className="text-blue-300 size-xl-"/>
                 <Typography variant="h1">Error 404: Page not found</Typography>
@@ -13,7 +13,6 @@ export default function Custom404Error(){
             </div>
             
             <Link href={"/"}><Typography style="hover:text-white hover:underline">Go back home.</Typography></Link>
-        </div>
+        </ContentContainer>
     )
 }
-<div className="bg-[url(/guiding_static.gif)] bg-fixed min-h-screen flex justify-center items-center flex-col gap-10"></div>

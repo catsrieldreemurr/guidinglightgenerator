@@ -1,25 +1,26 @@
 "use client"
 import DeathScreenSelector from "@/components/ui/sectionComponents/deathSelectionScreen";
-import Typography from "@/components/ui/typography";
-import { CircleXIcon } from "lucide-react";
-import Link from "next/link";
 import { useState } from "react";
 import Custom404Error from "../not-found";
+import ContentContainer from "@/components/ui/contentContainer";
+import Typography from "@/components/ui/typography";
+import CreatorScreen from "@/components/ui/sectionComponents/creatorScreen";
 
 export default function Page(){
     const [currentPage, setCurrentPage] = useState('select')
+    const [selectedScreen, setSelectedScreen] = useState('');
     
     switch (currentPage){
         case "select":
             return (
                 <div>
-                    <DeathScreenSelector/>
+                    <DeathScreenSelector setCurrentPage={setCurrentPage}/>
                 </div>
             )
         case "editor":
             return (
                 <div>
-                    <DeathScreenSelector/>
+                    <CreatorScreen setCurrentPage={setCurrentPage}/>
                 </div>
             )
         default:
