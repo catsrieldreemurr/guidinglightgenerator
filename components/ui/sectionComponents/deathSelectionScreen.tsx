@@ -6,10 +6,11 @@ import { Dispatch, SetStateAction } from "react";
 
 interface DeathScreenSelectorProps{
     setCurrentPage: Dispatch<SetStateAction<string>>
+    setSelectedScreen: Dispatch<SetStateAction<string>>
 }
 
 
-export default function DeathScreenSelector({ setCurrentPage }:DeathScreenSelectorProps){
+export default function DeathScreenSelector({ setCurrentPage, setSelectedScreen }:DeathScreenSelectorProps){
     return (
         <ContentContainer>
             <Link href={"/"}>
@@ -17,7 +18,12 @@ export default function DeathScreenSelector({ setCurrentPage }:DeathScreenSelect
             </Link>
 
             <div className="flex gap-10">
-                <SelectScreenComponent setCurrentPage={setCurrentPage} imageAlt="Guiding The Hotel" imageURL="/guidingTheHotel_bg.png"/>
+                <SelectScreenComponent 
+                    setCurrentPage={setCurrentPage}
+                    setSelectedScreen={setSelectedScreen}
+                    imageAlt="Guiding The Hotel" 
+                    imageURL="/guidingTheHotel_bg.png">
+                </SelectScreenComponent>
             </div>
         </ContentContainer>
 

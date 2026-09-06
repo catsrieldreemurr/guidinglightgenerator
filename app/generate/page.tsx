@@ -6,26 +6,28 @@ import ContentContainer from "@/components/ui/contentContainer";
 import Typography from "@/components/ui/typography";
 import CreatorScreen from "@/components/ui/sectionComponents/creatorScreen";
 
-export default function Page(){
+export default function Page() {
     const [currentPage, setCurrentPage] = useState('select')
     const [selectedScreen, setSelectedScreen] = useState('');
-    
-    switch (currentPage){
+
+    switch (currentPage) {
         case "select":
             return (
-                <div>
-                    <DeathScreenSelector setCurrentPage={setCurrentPage}/>
-                </div>
+                <DeathScreenSelector  
+                    setCurrentPage={setCurrentPage}
+                    setSelectedScreen={setSelectedScreen}>
+                </DeathScreenSelector>
             )
         case "editor":
             return (
-                <div>
-                    <CreatorScreen setCurrentPage={setCurrentPage}/>
-                </div>
+                <CreatorScreen
+                    selectedScreen={selectedScreen}
+                    setCurrentPage={setCurrentPage}>
+                </CreatorScreen>
             )
         default:
             return (
-                <Custom404Error/>
+                <Custom404Error />
             )
     }
 }
