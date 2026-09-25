@@ -1,6 +1,7 @@
 import { Dispatch, SetStateAction } from "react";
 import ContentContainer from "../contentContainer";
 import Typography from "../typography";
+import Image from "next/image";
 
 interface CreatorScreenProps {
     setCurrentPage: Dispatch<SetStateAction<string>>
@@ -20,7 +21,7 @@ export default function CreatorScreen({ setCurrentPage, selectedScreen }: Creato
             <Typography>Selected: {selectedScreen}</Typography>
             
             {/* Editor Section */}
-            
+            <Image src={selectedScreen} alt={selectedScreen} height={600} width={600}/>
 
         </ContentContainer>
     )

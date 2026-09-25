@@ -17,13 +17,42 @@ export default function DeathScreenSelector({ setCurrentPage, setSelectedScreen 
                 <Typography variant="h1" isBold style="mt-5 hover:text-white">Select a Death Screen</Typography>
             </Link>
 
-            <div className="flex gap-10">
+            <div className="flex gap-10 flex-wrap justify-center items-center sm:flex-row flex-col">
                 <SelectScreenComponent 
                     setCurrentPage={setCurrentPage}
                     setSelectedScreen={setSelectedScreen}
-                    imageAlt="Guiding The Hotel" 
+                    imageAlt="Moonlight Modern" 
                     imageURL="/guidingTheHotel_bg.png">
                 </SelectScreenComponent>
+
+                <SelectScreenComponent
+                    setCurrentPage={setCurrentPage}
+                    setSelectedScreen={setSelectedScreen}
+                    imageAlt="Moonlight Classic"
+                    imageURL="/Guidinglightblank.png">
+                </SelectScreenComponent>
+
+                <SelectScreenComponent
+                    setCurrentPage={setCurrentPage}
+                    setSelectedScreen={setSelectedScreen}
+                    imageAlt="Starlight Modern"
+                    imageURL="/curiouslightBack.png">
+                </SelectScreenComponent>
+
+                <SelectScreenComponent
+                    setCurrentPage={setCurrentPage}
+                    setSelectedScreen={setSelectedScreen}
+                    imageAlt="Starlight Classic"
+                    imageURL="/curiouslightBlank.png">
+                </SelectScreenComponent>
+
+                <SelectScreenComponent
+                    setCurrentPage={setCurrentPage}
+                    setSelectedScreen={setSelectedScreen}
+                    imageAlt="Red Light Classic"
+                    imageURL="/mischevioustemplate.png">
+                </SelectScreenComponent>
+
             </div>
         </ContentContainer>
 

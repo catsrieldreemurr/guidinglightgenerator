@@ -11,13 +11,13 @@ interface SelectScreenComponentProps {
 
 export default function SelectScreenComponent({ setCurrentPage, setSelectedScreen, imageURL, imageAlt }:SelectScreenComponentProps) {
     return (
-        <button className="flex flex-col items-center gap-5" onClick={() => {
+        <button className="flex flex-col items-center gap-5 flex-wrap sm:w-[30%]" onClick={() => {
             setCurrentPage('editor')
             setSelectedScreen(imageURL)
             console.log('editing')
         }}>
-            <Image className="rounded-xl" src={imageURL} alt={imageAlt} width={300} height={200}/>
-            <Typography style="text-2xl">Guiding The Hotel</Typography>
+            <Image className="rounded-xl border-2 border-blue-300" src={imageURL} alt={imageAlt} width={300} height={200}/>
+            <Typography style="text-2xl">{imageAlt}</Typography>
         </button>
     )
 }
