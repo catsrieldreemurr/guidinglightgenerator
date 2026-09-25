@@ -16,7 +16,7 @@ export default function SelectScreenComponent({ setCurrentPage, setSelectedScree
             setSelectedScreen(imageURL)
             console.log('editing')
         }}>
-            <Image className="rounded-xl border-2 border-blue-300" src={imageURL} alt={imageAlt} width={300} height={200}/>
+            <Image className="rounded-xl border-2 border-blue-400" src={imageURL} alt={imageAlt} width={300} height={200}/>
             <Typography style="text-2xl">{imageAlt}</Typography>
         </button>
     )

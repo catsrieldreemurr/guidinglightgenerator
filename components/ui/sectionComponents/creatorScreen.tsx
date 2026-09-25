@@ -1,7 +1,8 @@
-import { Dispatch, SetStateAction } from "react";
+import { Dispatch, SetStateAction, useState } from "react";
 import ContentContainer from "../contentContainer";
 import Typography from "../typography";
 import Image from "next/image";
+import { Textarea } from "../textarea";
 
 interface CreatorScreenProps {
     setCurrentPage: Dispatch<SetStateAction<string>>
@@ -10,6 +11,9 @@ interface CreatorScreenProps {
 }
 
 export default function CreatorScreen({ setCurrentPage, selectedScreen }: CreatorScreenProps) {
+    const [dialogue, setDialogue] = useState('')
+    const [characterCount, setCharacterCount] = useState(0)
+    
     return (
         <ContentContainer>
             <button onClick={() => {
@@ -21,7 +25,25 @@ export default function CreatorScreen({ setCurrentPage, selectedScreen }: Creato
             <Typography>Selected: {selectedScreen}</Typography>
             
             {/* Editor Section */}
-            <Image src={selectedScreen} alt={selectedScreen} height={600} width={600}/>
+            <div className="relative max-w-xl mx-auto mt-20">
+                <img src={selectedScreen} alt={selectedScreen} height={1836} width={1034}/>
+                <div className="absolute inset-0 flex items-center justify-center">
+                    <h1 className="text-guide sm:text-2xl whitespace-pre-line break-keep text-center">{dialogue}</h1>
+                </div>
+            </div>
+
+            <form className="text-center text-blue-300 flex gap-5 flex-col w-[20rem]">
+                <label htmlFor="dialoguebox" className="text-xl">Custom Dialogue ({characterCount}/200)</label>
+                <div>
+                    <Textarea title="dialoguebox" className="text-blue-300 border-2 border-blue-300 bg-blue-50/10" 
+                    value={dialogue} maxLength={200} onChange={(e) => {
+                        setDialogue(e.target.value)
+                        setCharacterCount(e.target.value.length)
+                    }}/>
+                </div>
+                
+            </form>
+            
 
         </ContentContainer>
     )

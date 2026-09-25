@@ -49,7 +49,7 @@ export default function DeathScreenSelector({ setCurrentPage, setSelectedScreen 
                 <SelectScreenComponent
                     setCurrentPage={setCurrentPage}
                     setSelectedScreen={setSelectedScreen}
-                    imageAlt="Red Light Classic"
+                    imageAlt="Red Light"
                     imageURL="/mischevioustemplate.png">
                 </SelectScreenComponent>
 
