@@ -31,12 +31,20 @@ export default function Page(){
                 <Link href={"https://www.roblox.com/games/6516141723/DOORS"}><Typography>🔗DOORS</Typography></Link>  
             </ImageTextComponent>
 
-            <div className="text-center p-15">
+            <div className="text-center p-10">
                 <Typography>If you find this website useful, please link back to it and spread the word &#60;3</Typography>
                 <Typography>If you have any questions or concerns, feel free to DM me on Twitter!</Typography>
                 <Typography>All Assets Created by hand in Photoshop.</Typography>
 
                 <Typography style="mt-10" isBold>This Project is not affiliated with or endorsed by LSplash.</Typography>
+            </div>
+
+            <div className="text-center p-10">
+                <Typography variant="h3" isBold>For use in Parodies:</Typography>
+                <Typography>Credit isn't required, but it would be deeply appreciated :D</Typography>
+                <Typography>A lot of work has gone into this project, and any support means a ton to me!</Typography>
+
+                <Typography style="p-5">DM @purrfectiu or @GuidingTheHotel on Twitter if you have any questions, or concerns!</Typography>
             </div>
 
             <div className="text-center p-15 pt-0">

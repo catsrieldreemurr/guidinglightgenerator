@@ -25,13 +25,13 @@ export default function CreatorScreen({ setCurrentPage, selectedScreen }: Creato
             case "/guidingTheHotel_bg.png":
                 setCurrentDialogueColour('text-guide')
                 break
-            case "/Guidinglightblank.png":
+            case "/GuidinglightBlank.png":
                 setCurrentDialogueColour('text-guide')
                 break
             case "/curiouslightBack.png":
                 setCurrentDialogueColour('text-curi')
                 break
-            case "/curiouslightBlank.png":
+            case "/CuriouslightBlank.png":
                 setCurrentDialogueColour('text-curi')
                 break
             case "/mischevioustemplate.png":
