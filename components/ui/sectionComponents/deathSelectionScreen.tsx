@@ -29,7 +29,7 @@ export default function DeathScreenSelector({ setCurrentPage, setSelectedScreen 
                     setCurrentPage={setCurrentPage}
                     setSelectedScreen={setSelectedScreen}
                     imageAlt="Moonlight Classic"
-                    imageURL="/Guidinglightblank.png">
+                    imageURL="/GuidinglightBlank.png">
                 </SelectScreenComponent>
 
                 <SelectScreenComponent
@@ -43,7 +43,7 @@ export default function DeathScreenSelector({ setCurrentPage, setSelectedScreen 
                     setCurrentPage={setCurrentPage}
                     setSelectedScreen={setSelectedScreen}
                     imageAlt="Starlight Classic"
-                    imageURL="/curiouslightBlank.png">
+                    imageURL="/CuriouslightBlank.png">
                 </SelectScreenComponent>
 
                 <SelectScreenComponent
