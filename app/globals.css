@@ -48,7 +48,8 @@
   --radius-4xl: calc(var(--radius) * 2.6);
   --color-guide: #9EEEFE;
   --color-curi: #FFF398;
-  --color-redLight: #FF0B00
+  --color-redLight: #FF0B00;
+  --color-default: #51A2FF;
 }
 
 :root {

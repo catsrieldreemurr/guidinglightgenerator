@@ -1,10 +1,11 @@
-import { Dispatch, SetStateAction, useEffect, useState } from "react";
+import React, { Dispatch, SetStateAction, useEffect, useState } from "react";
 import ContentContainer from "../contentContainer";
 import Typography from "../typography";
-import Image from "next/image";
 import { Textarea } from "../textarea";
 import { Button } from "../button";
-import FrontpageButton from "../frontpageButton";
+
+import html2canvas from 'html2canvas-pro';
+import { toast, Toaster } from "../toast";
 
 interface CreatorScreenProps {
     setCurrentPage: Dispatch<SetStateAction<string>>
@@ -16,6 +17,8 @@ export default function CreatorScreen({ setCurrentPage, selectedScreen }: Creato
     const [dialogue, setDialogue] = useState('')
     const [characterCount, setCharacterCount] = useState(0)
     const [currentDialogueColour, setCurrentDialogueColour] = useState('')
+
+    const imageRef = React.useRef(null)
 
     function setTextColour(){
         switch(selectedScreen){
@@ -35,8 +38,33 @@ export default function CreatorScreen({ setCurrentPage, selectedScreen }: Creato
                 setCurrentDialogueColour('text-redLight')
                 break
             default: 
-                setCurrentDialogueColour('text-blue-300')
+                setCurrentDialogueColour('text-default')
                 break
+        }
+    }
+
+async function copyImageToClipboard() {
+        const element = imageRef.current;
+        if (!element) return;
+
+        try {
+            const canvas = await html2canvas(element, {
+                scale: 2,
+                backgroundColor: null
+            });
+
+            canvas.toBlob(async (blob) => {
+                if (!blob) {
+                    console.error("Canvas to Blob conversion failed");
+                    return;
+                }
+
+                const item = new ClipboardItem({ "image/png": blob });
+                await navigator.clipboard.write([item]);
+            }, "image/png");
+
+        } catch (error) {
+            console.error("Failed to copy image:", error);
         }
     }
 
@@ -55,10 +83,10 @@ export default function CreatorScreen({ setCurrentPage, selectedScreen }: Creato
             <Typography>Selected: {selectedScreen}</Typography>
             
             {/* Editor Section */}
-            <div className="relative max-w-xl mx-auto mt-20">
-                <img src={selectedScreen} alt={selectedScreen} height={1836} width={1034}/>
+            <div ref={imageRef} className="relative max-w-xl mx-auto mt-20 overflow-hidden">
+                <img src={selectedScreen} alt={selectedScreen} height={1836} width={1034} className="block align-bottom"/>
                 <div className="absolute inset-0 flex items-center justify-center">
-                    <h1 className={`${currentDialogueColour} sm:text-2xl whitespace-pre-line break-keep text-center`}>{dialogue}</h1>
+                    <p className={`${currentDialogueColour} sm:text-2xl whitespace-pre-line break-keep text-center`}>{dialogue}</p>
                 </div>
             </div>
 
@@ -74,11 +102,25 @@ export default function CreatorScreen({ setCurrentPage, selectedScreen }: Creato
             </form>
 
             <div className="flex flex-row gap-5">
-                <Button className={'text-blue-300 hover:underline hover:bg-transparent border-2 border-blue-300 hover:text-blue-200'} variant={'ghost'}>Copy Image</Button>
+                <Button onClick={() => {
+                    copyImageToClipboard()
+                    toast.add({
+                        title: 'Copy Image',
+                        type: 'success',
+                        description: 'Successfully Copied Image to Clipboard'
+                    })
+                }} className={'text-blue-300 hover:underline hover:bg-transparent border-2 border-blue-300 hover:text-blue-200'} variant={'ghost'}>Copy Image</Button>
                 <Button onClick={() => {
                     navigator.clipboard.writeText(dialogue)
+                    toast.add({
+                        title: 'Copy Alt-Text',
+                        type: 'success',
+                        description: 'Successfully Copied Alt-Text to Clipboard'    
+                    })
                 }} className={'text-blue-300 hover:underline hover:bg-transparent border-2 border-blue-300 hover:text-blue-200'} variant={'ghost'}>Copy Alt-Text</Button>
             </div>
+
+            <Toaster></Toaster>
             
 
         </ContentContainer>
