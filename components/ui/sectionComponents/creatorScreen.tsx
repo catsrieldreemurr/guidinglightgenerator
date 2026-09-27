@@ -18,7 +18,7 @@ export default function CreatorScreen({ setCurrentPage, selectedScreen }: Creato
     const [characterCount, setCharacterCount] = useState(0)
     const [currentDialogueColour, setCurrentDialogueColour] = useState('')
 
-    const imageRef = React.useRef(null)
+    const imageRef = React.useRef<HTMLDivElement>(null)
 
     function setTextColour(){
         switch(selectedScreen){
@@ -50,7 +50,9 @@ async function copyImageToClipboard() {
         try {
             const canvas = await html2canvas(element, {
                 scale: 2,
-                backgroundColor: null
+                backgroundColor: '#000000',
+                removeContainer: true,
+                height: element.offsetHeight - 1
             });
 
             canvas.toBlob(async (blob) => {
@@ -83,10 +85,10 @@ async function copyImageToClipboard() {
             <Typography>Selected: {selectedScreen}</Typography>
             
             {/* Editor Section */}
-            <div ref={imageRef} className="relative max-w-xl mx-auto mt-20 overflow-hidden">
-                <img src={selectedScreen} alt={selectedScreen} height={1836} width={1034} className="block align-bottom"/>
-                <div className="absolute inset-0 flex items-center justify-center">
-                    <p className={`${currentDialogueColour} sm:text-2xl whitespace-pre-line break-keep text-center`}>{dialogue}</p>
+            <div ref={imageRef} className="relative max-w-xl mx-auto mt-20 overflow-hidden leading-none">
+                <img src={selectedScreen} alt={selectedScreen} height={1920} width={1080} className="w-full h-auto block align-bottom m-0 p-0"/>
+                <div className="absolute inset-0 flex items-center justify-center overflow-hidden">
+                    <p className={`${currentDialogueColour} sm:text-2xl whitespace-pre-line break-keep text-center overflow-hidden`}>{dialogue}</p>
                 </div>
             </div>
 
